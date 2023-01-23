@@ -18,7 +18,7 @@ const SetInputs = ({
     <div className="flex w-full items-center">
       <div>
         <input
-          value={reps}
+          value={reps || ""}
           onChange={(e) => setReps(Number(e.target.value))}
           className="w-8 rounded-lg border border-gray-800 text-center"
           type="number"
@@ -26,7 +26,7 @@ const SetInputs = ({
       </div>
       <div>
         <input
-          value={weight}
+          value={weight || ""}
           onChange={(e) => setWeight(Number(e.target.value))}
           className="ml-4 w-12  rounded-lg border border-gray-800 text-center"
           type="number"
