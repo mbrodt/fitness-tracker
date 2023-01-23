@@ -5,8 +5,9 @@ const Profile = () => {
   return (
     <>
       {sessionData && sessionData?.user?.image && (
-        <button onClick={() => signOut()}>
+        <button onClick={void signOut}>
           <img
+            alt="Profile picture"
             className="h-10 w-10 rounded-full"
             src={sessionData.user?.image}
           />

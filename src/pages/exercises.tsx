@@ -9,10 +9,9 @@ const Exercises = () => {
 
   const { data: muscleGroups, isFetched } = api.main.muscleGroups.useQuery();
   const mutation = api.main.workoutCreate.useMutation({
-    onSuccess(data) {
-      console.log("data:", data);
+    async onSuccess(data) {
       if (data) {
-        router.push(`/workouts/${data.id}`);
+        await router.push(`/workouts/${data.id}`);
       }
     },
   });
@@ -59,7 +58,7 @@ const Exercises = () => {
     );
   };
 
-  const createWorkout = async () => {
+  const createWorkout = () => {
     const exerciseGroups =
       muscleGroups
         ?.filter((muscleGroup) => {
@@ -68,7 +67,7 @@ const Exercises = () => {
           });
         })
         .map((muscleGroup) => muscleGroup.id) || [];
-    await mutation.mutate({
+    mutation.mutate({
       exercises: selectedExercises,
       muscleGroups: exerciseGroups,
     });

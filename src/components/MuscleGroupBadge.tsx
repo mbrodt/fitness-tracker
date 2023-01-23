@@ -7,7 +7,7 @@ const MuscleGroup = ({
   id: string;
   name: string;
   isActive: boolean;
-  toggleActive?: Function;
+  toggleActive?: (id: string) => void;
 }) => {
   return (
     <div

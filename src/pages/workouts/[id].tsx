@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Profile from "../../components/Profile";
 import MuscleGroupBadge from "../../components/MuscleGroupBadge";
 import { api } from "../../utils/api";
-import { Prisma, Set } from "@prisma/client";
+import type { Prisma, Set } from "@prisma/client";
 import SetInputs from "../../components/SetInputs";
 
 type WorkoutExerciseWithExercises = Prisma.WorkoutExerciseGetPayload<{
@@ -22,19 +22,19 @@ const Workout = () => {
 
   const addSetMutation = api.main.setCreate.useMutation({
     onSettled() {
-      refetch();
+      void refetch();
     },
   });
 
   const deleteSetMutation = api.main.setDelete.useMutation({
     onSettled() {
-      refetch();
+      void refetch();
     },
   });
 
   const updateSetMutation = api.main.setUpdate.useMutation({
     onSettled() {
-      refetch();
+      void refetch();
     },
   });
   console.log("workout:", workout);
@@ -49,7 +49,7 @@ const Workout = () => {
     if (!acc[muscleGroup]) {
       acc[muscleGroup] = [];
     }
-    acc[muscleGroup].push(exercise);
+    acc[muscleGroup]?.push(exercise);
     return acc;
   }, {} as { [key: string]: WorkoutExerciseWithExercises[] });
 
