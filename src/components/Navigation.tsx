@@ -9,7 +9,7 @@ const Navigation = () => {
       {sessionData && sessionData?.user && (
         <div className="fixed bottom-0 grid w-full grid-cols-2 items-center justify-center  border-t border-gray-400 bg-white ">
           <Link
-            className="border-r-px flex w-full items-center justify-center border-r border-gray-400  px-4 py-2 text-sm font-semibold text-gray-500"
+            className="border-r-px flex w-full items-center justify-center border-r border-gray-400  px-4 py-4 text-sm font-semibold text-gray-500"
             href="/exercises"
           >
             <svg

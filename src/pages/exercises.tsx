@@ -121,7 +121,7 @@ const Exercises = () => {
       </div>
       <button
         onClick={createWorkout}
-        className={`fixed bottom-12 left-4 right-4  rounded-full bg-gray-900 py-2 text-center text-lg text-white transition-all duration-300 ${
+        className={`btn fixed bottom-16 left-4  right-4 transition-all duration-300 ${
           selectedExercises.length > 0
             ? "translate-y-0 opacity-100"
             : "translate-y-8 opacity-0"

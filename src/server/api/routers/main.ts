@@ -11,57 +11,6 @@ export const mainRouter = createTRPCRouter({
     });
     return muscleGroups;
   }),
-  setCreate: protectedProcedure
-    .input(
-      z.object({
-        exerciseId: z.string(),
-      })
-    )
-    .mutation(({ ctx, input }) => {
-      const set = ctx.prisma.set.create({
-        data: {
-          workoutExerciseId: input.exerciseId,
-          weight: 0,
-          reps: 0,
-        },
-      });
-      return set;
-    }),
-  setDelete: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      })
-    )
-    .mutation(({ ctx, input }) => {
-      const set = ctx.prisma.set.delete({
-        where: {
-          id: input.id,
-        },
-      });
-      return set;
-    }),
-  setUpdate: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-        reps: z.number(),
-        weight: z.number(),
-      })
-    )
-    .mutation(({ ctx, input }) => {
-      console.log("input:", input);
-      const set = ctx.prisma.set.update({
-        where: {
-          id: input.id,
-        },
-        data: {
-          reps: input.reps,
-          weight: input.weight,
-        },
-      });
-      return set;
-    }),
 
   workout: protectedProcedure
     .input(
